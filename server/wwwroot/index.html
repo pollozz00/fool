@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дурень — Рейтинг</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">FoolRating</div>
+    <div id="navBtns">
+      <button onclick="openModal('login')">Увійти</button>
+      <button onclick="openModal('register')">Реєстрація</button>
+    </div>
+  </header>
+
+  <!--ПЕРЕМИКАЧ ВКЛАДОК-->
+  <div class="page-tabs">
+    <button id="btnTabRating" class="page-tab active" onclick="showTab('rating')">Рейтинг</button>
+    <button id="btnTabMatches" class="page-tab" onclick="showTab('matches')">Мої матчі</button>
+  </div>
+
+  <main>
+
+    <!--РЕЙТИНГ-->
+    <div id="pageRating">
+      <h1>Таблиця лідерів</h1>
+      <div id="loading">Завантаження...</div>
+      <div id="error" class="hidden"></div>
+      <table id="ratingTable" class="hidden">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Гравець</th>
+            <th>Очки</th>
+            <th>Перемоги</th>
+            <th>Поразки</th>
+            <th>Ігор</th>
+            <th>Winrate</th>
+          </tr>
+        </thead>
+        <tbody id="ratingBody"></tbody>
+      </table>
+    </div>
+
+    <!--МАТЧІ-->
+    <div id="pageMatches" class="hidden">
+      <h1>Мої матчі</h1>
+      <div id="notLoggedIn" class="not-logged-in hidden">
+        Щоб переглянути свої матчі — спочатку <span onclick="openModal('login')" class="link">увійдіть в акаунт</span>.
+      </div>
+      <div id="historySection" class="hidden">
+        <div id="historyLoading" class="hidden">Завантаження...</div>
+        <table id="historyTable" class="hidden">
+          <thead>
+            <tr>
+              <th>Результат</th>
+              <th>Очки</th>
+              <th>Дата</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+        <div id="historyEmpty" class="hidden">Ви ще не зіграли жодної партії.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!--МОДАЛЬНЕ ВІКНО-->
+  <div id="modalOverlay" class="hidden" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal()">✕</button>
+      <div class="tabs">
+        <button id="tabLogin" class="tab active" onclick="switchTab('login')">Вхід</button>
+        <button id="tabRegister" class="tab" onclick="switchTab('register')">Реєстрація</button>
+      </div>
+      <div id="formLogin">
+        <div class="form-group">
+          <label>Логін</label>
+          <input type="text" id="loginUsername" placeholder="your_username">
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" id="loginPassword" placeholder="••••••••">
+        </div>
+        <button class="btn-primary" onclick="doLogin()">Увійти</button>
+        <div id="loginMsg" class="msg hidden"></div>
+      </div>
+      <div id="formRegister" class="hidden">
+        <div class="form-group">
+          <label>Логін</label>
+          <input type="text" id="regUsername" placeholder="your_username">
+        </div>
+        <div class="form-group">
+          <label>Ім'я в грі</label>
+          <input type="text" id="regDisplayName" placeholder="your_display_username">
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" id="regPassword" placeholder="••••••••">
+        </div>
+        <button class="btn-primary" onclick="doRegister()">Зареєструватись</button>
+        <div id="regMsg" class="msg hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+[
+  {
+    "ContainingType": "FoolWebAPI.Controllers.PlayerController",
+    "Method": "Login",
+    "RelativePath": "api/Player/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FoolWebAPI.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoolWebAPI.Controllers.PlayerController",
+    "Method": "Register",
+    "RelativePath": "api/Player/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FoolWebAPI.DTOs.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoolWebAPI.Controllers.RatingController",
+    "Method": "GetHistory",
+    "RelativePath": "api/Rating/history/{playerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoolWebAPI.Controllers.RatingController",
+    "Method": "GetLeaderboard",
+    "RelativePath": "api/Rating/leaderboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoolWebAPI.Controllers.RatingController",
+    "Method": "SaveResult",
+    "RelativePath": "api/Rating/save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FoolWebAPI.DTOs.SaveResultDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
